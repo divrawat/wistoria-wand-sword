@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import Head from 'next/head';
 import { APP_NAME, DOMAIN, MANGA_NAME, NEXT_PREVIOUS_PREFIX, IMAGE_PREFIX, CHAPTER_PREFIX, AUTHOR_PAGE, LOGO_URL, chaptersData, IMAGES_SUBDOMAIN, DOMAIN_NAME } from '@/config';
 // import DisqusComments from '@/components/DisQus';
-// export const runtime = 'experimental-edge';
+export const runtime = 'experimental-edge';
 
 export default function Chapter({ chapterNumber, imageUrls, totalChapters, params, errorcode }) {
 
