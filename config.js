@@ -26,8 +26,8 @@ export const NEXT_PREVIOUS_PREFIX = 'chapter';
 export const URL_PREFIX = 'chapter';
 
 export const AUTHOR_PAGE = `${DOMAIN}/wistoria-wand-and-sword-team`;
-export const LOGO_URL = `${DOMAIN}/logo.webp`;
-export const COVER_IMG = `${DOMAIN}/cover.webp`;
+export const LOGO_URL = `${DOMAIN}/logo1.webp`;
+export const COVER_IMG = `${DOMAIN}/cover1.webp`;
 export const BEHIND_COVER_IMG = "";
 
 
