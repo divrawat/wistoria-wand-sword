@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { DOMAIN, MANGA_NAME, MANGA_DESCRIPTION, MANGA_AUTHOR, MANGA_RELEASE, MANGA_STATUS, MANGA_ARTIST, MANGA_STUDIO, MANGA_GENRE, APP_DESCRIPTION, APP_NAME, MANGA_SUMMARY, COVER_IMG, AUTHOR_PAGE, LOGO_URL, URL_PREFIX, chaptersData, BEHIND_COVER_IMG, RelatedMangaLinks } from "@/config";
+import { DOMAIN, MANGA_NAME, MANGA_DESCRIPTION, MANGA_AUTHOR, MANGA_RELEASE, MANGA_STATUS, MANGA_ARTIST, MANGA_STUDIO, MANGA_GENRE, APP_DESCRIPTION, APP_NAME, MANGA_SUMMARY, COVER_IMG, AUTHOR_PAGE, LOGO_URL, URL_PREFIX, chaptersData, BEHIND_COVER_IMG, RelatedMangaLinks, DOMAIN_NAME } from "@/config";
 import Head from "next/head";
 
 export default function Home() {
@@ -28,7 +28,7 @@ export default function Home() {
   const genres = MANGA_GENRE.split(', ');
 
 
-  const schema =
+  const schema00 =
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -53,6 +53,112 @@ export default function Home() {
       }
     },
   }
+
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${DOMAIN}`,
+        "url": `${DOMAIN}`,
+        "name": `Read ${MANGA_NAME} manga Online in a very high quality on our website`,
+        "isPartOf": {
+          "@id": `${DOMAIN}/#website`
+        },
+        "about": {
+          "@id": `${DOMAIN}/#organization`
+        },
+        "primaryImageOfPage": {
+          "@id": `${DOMAIN}/#primaryimage`
+        },
+        "image": {
+          "@id": `${DOMAIN}/#primaryimage`
+        },
+        "thumbnailUrl": `${COVER_IMG}`,
+        "description": `Read ${MANGA_NAME} Manga Online at ${DOMAIN_NAME} which is the best website for reading manga online in very high quality.`,
+        "breadcrumb": {
+          "@id": `${DOMAIN}/#breadcrumb`
+        },
+        "inLanguage": "en-US",
+        "potentialAction": [
+          {
+            "@type": "ReadAction",
+            "target": [`${DOMAIN}`]
+          }
+        ]
+      },
+      {
+        "@type": "ImageObject",
+        "inLanguage": "en-US",
+        "@id": `${DOMAIN}/#primaryimage`,
+        "url": `${COVER_IMG}`,
+        "contentUrl": `${COVER_IMG}`,
+        "width": 1280,
+        "height": 720,
+        "caption": `${MANGA_NAME} high Quality cover Image`
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${DOMAIN}/#breadcrumb`,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home"
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${DOMAIN}/#website`,
+        "url": `${DOMAIN}`,
+        "name": "My Blog",
+        "description": `Read ${MANGA_NAME} manga Online at ${DOMAIN_NAME} which is the best website for reading manga online in very high quality.`,
+        "publisher": {
+          "@id": `${DOMAIN}/#organization`
+        },
+        "potentialAction": [
+          {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": `${DOMAIN}/search/{search_term_string}`,
+            },
+            "query-input": {
+              "@type": "PropertyValueSpecification",
+              "valueRequired": true,
+              "valueName": "search_term_string"
+            }
+          }
+        ],
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "Organization",
+        "@id": `${DOMAIN}/#organization`,
+        "name": "My Blog",
+        "url": `${DOMAIN}`,
+        "logo": {
+          "@type": "ImageObject",
+          "inLanguage": "en-US",
+          "@id": `${DOMAIN}/#logo`,
+          "url": `${LOGO_URL}`,
+          "contentUrl": `${LOGO_URL}`,
+          "width": 476,
+          "height": 480,
+          "caption": "My Blog"
+        },
+        "image": {
+          "@id": `${DOMAIN}/#logo`
+        }
+      }
+    ]
+  };
+
+
+
+
 
   const head = () => (
     <Head>

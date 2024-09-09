@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Head from 'next/head';
-import { APP_NAME, DOMAIN, MANGA_NAME, NEXT_PREVIOUS_PREFIX, IMAGE_PREFIX, CHAPTER_PREFIX, AUTHOR_PAGE, LOGO_URL, chaptersData, IMAGES_SUBDOMAIN, DOMAIN_NAME } from '@/config';
+import { APP_NAME, DOMAIN, MANGA_NAME, NEXT_PREVIOUS_PREFIX, IMAGE_PREFIX, CHAPTER_PREFIX, AUTHOR_PAGE, LOGO_URL, chaptersData, IMAGES_SUBDOMAIN, DOMAIN_NAME, MANGA_GENRE } from '@/config';
 // import DisqusComments from '@/components/DisQus';
 export const runtime = 'experimental-edge';
 
@@ -31,7 +31,7 @@ export default function Chapter({ chapterNumber, imageUrls, totalChapters, param
     const URL = params.chapter;
 
 
-    const schema =
+    const schema00 =
     {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
@@ -56,6 +56,153 @@ export default function Chapter({ chapterNumber, imageUrls, totalChapters, param
             }
         },
     }
+
+
+    const schema = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Article",
+                "@id": `${DOMAIN}/${URL}/#article`,
+                "isPartOf": {
+                    "@id": `${DOMAIN}/${URL}`,
+                },
+                "author": {
+                    "name": "Divyanshu Rawat",
+                    "@id": `${DOMAIN}/#/schema/person/7edc4ad8bsc84d70b9422d149194021b`,
+                },
+                "headline": `${MANGA_NAME} Chapter ${chapterNumber}`,
+                "mainEntityOfPage": {
+                    "@id": `${DOMAIN}/${URL}`
+                },
+                "wordCount": 150,
+                "commentCount": 13,
+                "publisher": {
+                    "@id": `${DOMAIN}/#organization`
+                },
+                "image": {
+                    "@id": `${IMAGES_SUBDOMAIN}/chapter-${chapterNumber}/1.webp`,
+                },
+                "thumbnailUrl": `${IMAGES_SUBDOMAIN}/chapter-${chapterNumber}/1.webp`,
+                "articleSection": ["Manga Series"],
+                "inLanguage": "en-US",
+                "potentialAction": [
+                    {
+                        "@type": "CommentAction",
+                        "name": "Comment",
+                        "target": [
+                            `${DOMAIN}/${URL}/#respond`
+                        ]
+                    }
+                ]
+            },
+            {
+                "@type": "WebPage",
+                "@id": `${DOMAIN}/${URL}`,
+                "url": `${DOMAIN}/${URL}`,
+                "name": `${MANGA_NAME} Chapter ${chapterNumber}`,
+                "isPartOf": {
+                    "@id": `${DOMAIN}/#website`
+                },
+                "primaryImageOfPage": {
+                    "@id": `${DOMAIN}/${URL}/#primaryimage`
+                },
+                "image": {
+                    "@id": `${DOMAIN}/${URL}/#primaryimage`
+                },
+                "thumbnailUrl": `${IMAGES_SUBDOMAIN}/chapter-${chapterNumber}/1.webp`,
+                "description": `Read ${MANGA_NAME} manga Online at ${DOMAIN_NAME} which is the best website for reading manga online in very high quality.`,
+                "breadcrumb": {
+                    "@id": `${DOMAIN}/${URL}/#breadcrumb`
+                },
+                "inLanguage": "en-US",
+                "potentialAction": [
+                    {
+                        "@type": "ReadAction",
+                        "target": [
+                            `${DOMAIN}/${URL}`
+                        ]
+                    }
+                ]
+            },
+            {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": `${DOMAIN}/${URL}/#primaryimage`,
+                "url": `${IMAGES_SUBDOMAIN}/chapter-${chapterNumber}/1.webp`,
+                "contentUrl": `${IMAGES_SUBDOMAIN}/chapter-${chapterNumber}/1.webp`,
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": `${DOMAIN}/${URL}/#breadcrumb`,
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": `${DOMAIN}/`
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": `${MANGA_NAME} Chapter ${chapterNumber}`,
+                    }
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "@id": `${DOMAIN}/#website`,
+                "url": `${DOMAIN}`,
+                "name": "My Manga Blog",
+                "description": `Read ${MANGA_NAME} manga Online at ${DOMAIN_NAME} which is the best website for reading manga online in very high quality.`,
+                "publisher": {
+                    "@id": `${DOMAIN}/#organization`
+                },
+                "potentialAction": [
+                    {
+                        "@type": "SearchAction",
+                        "target": {
+                            "@type": "EntryPoint",
+                            "urlTemplate": `${DOMAIN}/?s={search_term_string}`,
+                        },
+                        "query-input": {
+                            "@type": "PropertyValueSpecification",
+                            "valueRequired": true,
+                            "valueName": "search_term_string"
+                        }
+                    }
+                ],
+                "inLanguage": "en-US"
+            },
+            {
+                "@type": "Organization",
+                "@id": `${DOMAIN}/#organization`,
+                "name": "My Manga Blog",
+                "url": `${DOMAIN}`,
+                "logo": {
+                    "@type": "ImageObject",
+                    "inLanguage": "en-US",
+                    "@id": `${DOMAIN}/#/schema/logo/image/`,
+                    "url": `${LOGO_URL}`,
+                    "contentUrl": `${LOGO_URL}`,
+                    "width": 192,
+                    "height": 192,
+                    "caption": "My Manga Blog"
+                },
+                "sameAs": []
+            },
+            {
+                "@type": "Person",
+                "@id": `${DOMAIN}/#/schema/person/7edc4ad8p1cf4d70b7422c149194021b`,
+                "name": "Divyanshu Rawat"
+            }
+        ]
+    }
+
+
+
+
+
 
     const head = () => (
         <Head>
