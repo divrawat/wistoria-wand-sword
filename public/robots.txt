@@ -1,4 +1,4 @@
 user-agent: *
-Disallow:
+Disallow: /admin/
 
 Sitemap: https://wistoriawandandsword.in.net/sitemap.xml
