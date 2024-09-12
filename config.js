@@ -69,9 +69,9 @@ export const MANGA_SUMMARY = [
 
 
 export const navLinks = [
-    // { text: 'Home', href: `${DOMAIN}` },
-    // { text: 'DMCA', href: `${DOMAIN}/dmca` },
-    // { text: 'Terms & Conditions', href: `${DOMAIN}/terms-and-conditions` },
+    { text: 'Chapter 1', href: `${DOMAIN}/chapter-1` },
+    { text: 'Chapter 10', href: `${DOMAIN}/chapter-10` },
+    { text: 'Chapter 40', href: `${DOMAIN}/chapter-40` },
 ];
 
 export const FooterLinks = [

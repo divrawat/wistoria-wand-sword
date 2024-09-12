@@ -76,7 +76,7 @@ export default function Chapter({ chapterNumber, imageUrls, totalChapters, param
                     "@id": `${DOMAIN}/${URL}`
                 },
                 "wordCount": 150,
-                "commentCount": 13,
+                "commentCount": 34,
                 "publisher": {
                     "@id": `${DOMAIN}/#organization`
                 },
