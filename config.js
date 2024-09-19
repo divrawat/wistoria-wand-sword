@@ -5,6 +5,7 @@ export const DOMAIN = 'https://wistoriawandandsword.in.net';
 export const DOMAIN_NAME = 'wistoriawandandsword.in.net';
 
 export const IMAGES_SUBDOMAIN = 'https://images.mangachimp.com/wistorias-wand-and-sword';
+export const IMAGES_SUBDOMAIN_LOGO = 'https://images.mangachimp.com';
 
 // export const MANGA_DESCRIPTION0 = `<a href="${DOMAIN}"><u>Vinland Saga</u></a>`;
 

@@ -8,6 +8,7 @@ Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 NProgress.configure({ showSpinner: false })
+import Popup from '@/components/Popup';
 
 const rubik = Rubik({ subsets: ['latin'], preload: false });
 
@@ -18,6 +19,7 @@ function MyApp({ Component, pageProps }) {
   // }, []);
   return (
     <>
+      <Popup />
       <style jsx global>{`
          :root {--font-shantell-sans: ${rubik.style.fontFamily}; }
         body {font-family: var(--font-shantell-sans);}        
