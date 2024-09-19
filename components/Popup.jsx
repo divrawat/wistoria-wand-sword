@@ -28,6 +28,7 @@ export default function Popup() {
     const handleClose = () => {
         setIsVisible(false);
         localStorage.setItem(POPUP_KEY, Date.now());
+        window.open('https://discord.gg/zK7s4FSxrJ', '_blank');
     };
 
     if (!isVisible) return null;
