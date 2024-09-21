@@ -200,7 +200,7 @@ export default function Home() {
 
           <div className="md:w-3/5 md:mr-10  text-white p-5 relative z-10">
             <h1 className="text-center font-extrabold text-4xl my-5 uppercase">{MANGA_NAME}</h1>
-            <p className="my-5 leading-[2] px-6 text-center" dangerouslySetInnerHTML={{ __html: MANGA_DESCRIPTION }} />
+            {/* <p className="my-5 leading-[2] px-6 text-center" dangerouslySetInnerHTML={{ __html: MANGA_DESCRIPTION }} /> */}
 
             <div className="flex flex-wrap justify-center gap-2 px-4">
               {genres.map((genre, index) => (
@@ -264,13 +264,15 @@ export default function Home() {
 
         <div className="bg-[black] relative">
           <div className="absolute inset-0 bg-black opacity-80"></div> {/* Dark overlay */}
-          <div className="pt-10 pb-10 max-w-[1100px] mx-auto px-5 text-[white] relative z-10">
+          {/* <div className="pt-10 pb-10 max-w-[1100px] mx-auto px-5 text-[white] relative z-10">
             <h2 className="text-center font-extrabold text-3xl">{`More About ${MANGA_NAME} Manga`}</h2>
             {MANGA_SUMMARY.map(paragraph => (
               <p className="py-7 leading-[2]" key={paragraph.id}>{paragraph.content}</p>
             ))}
-          </div>
+          </div> */}
         </div>
+
+
       </article >
       <Footer />
     </>
