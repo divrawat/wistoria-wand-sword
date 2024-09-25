@@ -1,6 +1,6 @@
 
 // export const DOMAIN = 'http://localhost:3000';
-export const DOMAIN = 'https://wistoriawandandsword.in.net';
+export const DOMAIN = 'https://ww1.wistoriawandandsword.in.net';
 
 export const DOMAIN_NAME = 'wistoriawandandsword.in.net';
 
